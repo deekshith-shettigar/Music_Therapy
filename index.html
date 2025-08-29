@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Music Therapy Database ER Diagram</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f4ff, #fdfdfd);
+            margin: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 900;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 5px 0 40px;
+            font-weight: 600;
+            color: #636e72;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            justify-content: center;
+        }
+
+        .entity {
+            border-radius: 16px;
+            padding: 25px 30px;
+            min-width: 280px;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .entity:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .entity-header {
+            font-size: 1.4em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .entity-header .icon {
+            font-size: 1.6em;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        .attribute {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1em;
+        }
+
+        .attribute .icon {
+            font-size: 1.2em;
+            width: 22px;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        .attribute .name {
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .attribute .desc {
+            font-size: 0.85em;
+            opacity: 0.85;
+            white-space: normal;
+            word-break: break-word;
+            flex: 1;
+        }
+
+        .users {
+            background: linear-gradient(135deg, #f6d365, #fda085);
+        }
+
+        .songs {
+            background: linear-gradient(135deg, #5ee7df, #b490ca);
+        }
+
+        .sessions {
+            background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+        }
+
+        .mood-logs {
+            background: linear-gradient(135deg, #96fbc4, #f9f586);
+            color: #333;
+        }
+
+        .relationship {
+            margin-top: 15px;
+            font-size: 0.9em;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-style: italic;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0.6;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎵 Music Therapy Database</h1>
+    <h2>Entity Relationship Diagram</h2>
+
+    <main class="container">
+        <div class="entity users">
+            <div class="entity-header">
+                <span class="icon">👤</span>
+                Users
+            </div>
+            <div class="attribute"><span class="icon">🔑</span><span class="name">user_id</span><span
+                    class="desc">Primary Key</span></div>
+            <div class="attribute"><span class="icon">🧑</span><span class="name">name</span><span class="desc">Patient
+                    Name</span></div>
+            <div class="attribute"><span class="icon">📅</span><span class="name">age</span><span
+                    class="desc">Age</span></div>
+            <div class="attribute"><span class="icon">⚧</span><span class="name">gender</span><span class="desc">Gender
+                    Identity</span></div>
+            <div class="attribute"><span class="icon">✉️</span><span class="name">email</span><span class="desc">Email
+                    (Unique)</span></div>
+            <div class="attribute"><span class="icon">⏰</span><span class="name">created_at</span><span
+                    class="desc">Registration Date</span></div>
+            <div class="relationship">One patient can attend multiple therapy sessions over time</div>
+        </div>
+
+        <div class="entity songs">
+            <div class="entity-header">
+                <span class="icon">🎵</span>
+                Songs
+            </div>
+            <div class="attribute"><span class="icon">🔑</span><span class="name">song_id</span><span
+                    class="desc">Primary Key</span></div>
+            <div class="attribute"><span class="icon">🎼</span><span class="name">title</span><span class="desc">Song
+                    Title</span></div>
+            <div class="attribute"><span class="icon">🎤</span><span class="name">artist</span><span class="desc">Artist
+                    Name</span></div>
+            <div class="attribute"><span class="icon">🎧</span><span class="name">genre</span><span class="desc">Music
+                    Genre</span></div>
+            <div class="attribute"><span class="icon">⏱️</span><span class="name">duration</span><span
+                    class="desc">Seconds</span></div>
+            <div class="attribute"><span class="icon">🎵</span><span class="name">bpm</span><span class="desc">Beats Per
+                    Minute</span></div>
+            <div class="attribute"><span class="icon">⚡</span><span class="name">energy_level</span><span
+                    class="desc">Energy</span></div>
+            <div class="attribute"><span class="icon">⏰</span><span class="name">created_at</span><span
+                    class="desc">Added Date</span></div>
+            <div class="relationship">One song can be used across multiple therapeutic sessions</div>
+        </div>
+
+        <div class="entity sessions">
+            <div class="entity-header">
+                <span class="icon">📅</span>
+                Sessions
+            </div>
+            <div class="attribute"><span class="icon">🔑</span><span class="name">session_id</span><span
+                    class="desc">Primary Key</span></div>
+            <div class="attribute"><span class="icon">👤</span><span class="name">user_id</span><span
+                    class="desc">Patient Reference</span></div>
+            <div class="attribute"><span class="icon">🎵</span><span class="name">song_id</span><span class="desc">Song
+                    Reference</span></div>
+            <div class="attribute"><span class="icon">▶️</span><span class="name">start_time</span><span
+                    class="desc">Session Start</span></div>
+            <div class="attribute"><span class="icon">⏹️</span><span class="name">end_time</span><span
+                    class="desc">Session End</span></div>
+            <div class="attribute"><span class="icon">🗂️</span><span class="name">session_type</span><span
+                    class="desc">Session Type</span></div>
+            <div class="attribute"><span class="icon">📝</span><span class="name">therapist_notes</span><span
+                    class="desc">Therapist Notes</span></div>
+            <div class="attribute"><span class="icon">⏰</span><span class="name">created_at</span><span
+                    class="desc">Session Created</span></div>
+            <div class="relationship">Each session connects one patient with one song and produces mood data</div>
+        </div>
+
+        <div class="entity mood-logs">
+            <div class="entity-header">
+                <span class="icon">😊</span>
+                Mood_Logs
+            </div>
+            <div class="attribute"><span class="icon">🔑</span><span class="name">log_id</span><span
+                    class="desc">Primary Key</span></div>
+            <div class="attribute"><span class="icon">📅</span><span class="name">session_id</span><span
+                    class="desc">Session Reference</span></div>
+            <div class="attribute"><span class="icon">😔</span><span class="name">mood_before</span><span
+                    class="desc">Pre-Session</span></div>
+            <div class="attribute"><span class="icon">😊</span><span class="name">mood_after</span><span
+                    class="desc">Post-Session</span></div>
+            <div class="attribute"><span class="icon">📊</span><span class="name">mood_intensity_before</span><span
+                    class="desc">Pre Intensity (1-10)</span></div>
+            <div class="attribute"><span class="icon">📈</span><span class="name">mood_intensity_after</span><span
+                    class="desc">Post Intensity (1-10)</span></div>
+            <div class="attribute"><span class="icon">💬</span><span class="name">mood_change_notes</span><span
+                    class="desc">Mood Change Notes</span></div>
+            <div class="attribute"><span class="icon">⏰</span><span class="name">logged_at</span><span class="desc">Log
+                    Timestamp</span></div>
+            <div class="relationship">Each session generates exactly one mood assessment record</div>
+        </div>
+    </main>
+</body>
+
+</html>
