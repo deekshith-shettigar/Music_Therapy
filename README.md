@@ -13,7 +13,7 @@ The database schema consists of four main tables:
 
 ## ER Diagram
 
-![Database Schema](./ER_Diagram.png.png)
+![Database Schema](./ER_Diagram.png.)
 
 *Note: The above image illustrates the relationships and fields of the database tables.*
 
